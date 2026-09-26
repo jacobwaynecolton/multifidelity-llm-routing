@@ -19,7 +19,9 @@ Evaluated against a Thompson Sampling contextual multi-armed bandit (CMAB) and s
 - **MBPP (code generation, execution-verified):** the SVGP router gives higher accuracy than the CMAB at every compute budget. The CMAB's online "exploration tax" keeps it from operating below ~2.8x cost, while the SVGP covers the full range from SLM-only (1.0x) to Oracle-only (4.7x). Speculative decoding reaches full accuracy but only at a fixed ~3.8x cost.
 - **MMLU (57 subjects):** the router picks up semantic clusters of SLM competence in latent space and produces a convex trade-off curve that clearly beats the CMAB.
 
-![MBPP trade-off curve](figures/tradeoff_curve.png)
+| MBPP | MMLU |
+|------|------|
+| ![MBPP trade-off curve](figures/mbpp_tradeoff.png) | ![MMLU trade-off curve](figures/mmlu_tradeoff.png) |
 
 ## Files
 | File | Purpose |
