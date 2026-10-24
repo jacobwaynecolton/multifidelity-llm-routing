@@ -14,9 +14,9 @@ Small language models (SLMs) are cheap but unreliable on hard queries; large mod
 4. A tunable confidence threshold decides between the SLM and the Oracle, giving a full cost-accuracy curve instead of a single operating point.
 
 ## Results
-Evaluated against a Thompson Sampling contextual multi-armed bandit (CMAB) and speculative decoding:
+Compared against a Thompson Sampling contextual multi-armed bandit (CMAB) and an analytical speculative-decoding baseline. Costs are relative compute, using the parameter ratio between the Oracle and the SLM; the Oracle and speculative-decoding points are modelled rather than run end to end.
 
-- **MBPP (code generation, execution-verified):** the SVGP router gives higher accuracy than the CMAB at every compute budget. The CMAB's online "exploration tax" keeps it from operating below ~2.8x cost, while the SVGP covers the full range from SLM-only (1.0x) to Oracle-only (4.7x). Speculative decoding reaches full accuracy but only at a fixed ~3.8x cost.
+- **MBPP (code generation, labelled by whether the SLM's code executes without error):** the SVGP router gives higher accuracy than the CMAB at every compute budget. The CMAB's online "exploration tax" keeps it from operating below ~2.8x cost, while the SVGP covers the full range from SLM-only (1.0x) to Oracle-only (4.7x). Speculative decoding is modelled as matching the Oracle's output, but only at a fixed ~3.8x cost, with no way to trade accuracy for a lower budget.
 - **MMLU (57 subjects):** the router picks up semantic clusters of SLM competence in latent space and produces a convex trade-off curve that clearly beats the CMAB.
 
 | MBPP | MMLU |
